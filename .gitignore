@@ -1,0 +1,12 @@
+#== Build & Gradle
+/.gradle/
+/build/
+/local.properties
+
+#== IDE & OS
+/.idea/
+*.iml
+.DS_Store
+
+#== User workspace
+/temp/

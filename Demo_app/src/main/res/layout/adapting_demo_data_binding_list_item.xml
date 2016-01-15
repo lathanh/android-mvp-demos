@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+  <data>
+    <import type="android.view.View"/>
+
+    <variable
+        name="loadingViewModel"
+        type="org.lathanh.demo.android.mvp.adapting_demo.data_binding.DataBindingDemo_Models.LoadingViewModel"/>
+  </data>
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <!-- == Content ======================================================= -->
+    <!--
+      - TODO-XX- How to get rid of flicker?
+      - The visibility expression will always evaluate to View.GONE at first
+      - (because loadingViewModel == null at first). However, it appears that
+      - the initial value given to the layout is VISIBLE until the expression is
+      - evaluated a fraction of a second later.
+      - This results in the user seeing the content (empty) for a fraction of
+      - a second before it transitions to the loading state - a "flicker" - it
+      - was supposed to be in from the start.
+      - Can the visibility be 'GONE' initially, until the statement is
+      - evaluated?
+      -->
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:drawable/edit_text"
+        android:visibility="@{loadingViewModel.viewModel != null ? View.VISIBLE : View.GONE}">
+
+      <TextView
+          android:id="@+id/label"
+          android:text="@{loadingViewModel.viewModel.string}"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="16sp"
+          android:textStyle="bold"/>
+
+      <TextView
+          android:id="@+id/delay"
+          android:text="@{loadingViewModel.viewModel.delay}"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_toEndOf="@id/label"
+          android:layout_marginStart="12dp"
+          android:layout_alignBaseline="@id/label"
+          android:textColor="@android:color/darker_gray"/>
+
+      <TextView
+          android:id="@+id/bind_label"
+          android:text="onBindViewholder-to-getBindTime: "
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@id/delay"
+          android:layout_marginTop="2dp"
+          android:layout_alignStart="@id/delay"
+          android:textColor="@android:color/holo_red_dark"/>
+      <TextView
+          android:id="@+id/bind"
+          android:text="@{loadingViewModel.bindTime}"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignBaseline="@id/bind_label"
+          android:layout_marginTop="2dp"
+          android:layout_toEndOf="@id/bind_label"
+          android:textColor="@android:color/holo_red_dark"/>
+    </RelativeLayout>
+
+    <!-- == Loading placeholder ============================================= -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="@{loadingViewModel.viewModel != null ? View.GONE : View.VISIBLE}"/>
+  </RelativeLayout>
+</layout>

@@ -1,0 +1,12 @@
+<resources>
+  <string name="app_name">LaThanh.org Android MVP Demos</string>
+
+  <string name="adaptingDemo_standardFragment_name">Adapting — Standard</string>
+  <string name="adaptingDemo_improvement1Fragment_name">Adapting — Improvement 1</string>
+  <string name="adaptingDemo_improvement2Fragment_name">Adapting — Improvement 2</string>
+  <string name="dataBindingDemo_standardFragment_name">Data Binding — Standard</string>
+  <string name="dataBindingDemo_improvement1Fragment_name">Data Binding — Improvement 1</string>
+
+  <string name="clear">Clear</string>
+
+</resources>
