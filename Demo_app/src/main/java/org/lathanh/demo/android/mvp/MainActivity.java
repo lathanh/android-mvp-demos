@@ -10,8 +10,10 @@ import android.view.MenuItem;
 import org.lathanh.demo.android.mvp.adapting_demo.AdaptingDemo_Improvement1Fragment;
 import org.lathanh.demo.android.mvp.adapting_demo.AdaptingDemo_Improvement2Fragment;
 import org.lathanh.demo.android.mvp.adapting_demo.AdaptingDemo_StandardFragment;
+import org.lathanh.demo.android.mvp.adapting_demo.framework.adaptable.AdapterFwkDemo_AdaptableFragment;
 import org.lathanh.demo.android.mvp.adapting_demo.data_binding.DataBindingDemo_StandardFragment;
 import org.lathanh.demo.android.mvp.adapting_demo.data_binding.DataBindingDemo_Improvement1Fragment;
+import org.lathanh.demo.android.mvp.adapting_demo.framework.simple.AdapterFwkDemo_SimpleFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,6 +50,18 @@ public class MainActivity extends AppCompatActivity {
       @Override
       public Fragment newInstance() {
         return DataBindingDemo_Improvement1Fragment.newInstance();
+      }
+    },
+    ADAPTER_FRAMEWORK_DEMO_SIMPLE(R.id.adapterFrameworkDemo_simple) {
+      @Override
+      public Fragment newInstance() {
+        return AdapterFwkDemo_SimpleFragment.newInstance();
+      }
+    },
+    ADAPTER_FRAMEWORK_DEMO_ADAPTABLE(R.id.adapterFrameworkDemo_adaptable) {
+      @Override
+      public Fragment newInstance() {
+        return AdapterFwkDemo_AdaptableFragment.newInstance();
       }
     },
     ;
