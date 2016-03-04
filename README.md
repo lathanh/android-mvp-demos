@@ -245,18 +245,25 @@ View/ViewHolder is bound to a different item/position/ViewModel. This is so we
 don't waste objects (discard and recreate with each bind), which would result in
 GC that can cause stutters in scrolling ("jank").
 
-Data Binding
+
+What's Next?
 -------------------------------------------------------------------------------
+We've demonstrated how to achieve "high-performance" and "responsive" UIs by
+separating adapting from binding. 
+
+### 1. Data Binding
 [Android Data Binding](https://developer.android.com/tools/data-binding/guide.html) 
 simplifies the binding step.
 The [Data Binding demos](data-binding.md) essentially repeats the Adapting demo, 
 but using Android Data Binding instead of manually binding.
 
-What's Next?
--------------------------------------------------------------------------------
-We've achieved "high-performance" and "responsive," and still need to build in
-"reusable."
-In the demos to come, we'll:
+### 2. A Framework
+We'll apply this strategy to a framework. That is we'll create base (abstract) 
+classes that steer developers into the practices demonstrated here; 
+and further, provide implementations that take care of common use cases for 
+them, like using a ExecutorService to do the adapting in the background.
 
+### And Beyond
   1. Introduce updates of the data, which should update the view.
-  2. And more!
+  2. Learn how this makes our adapting, binding, and state 
+     saving/restoring easy for non-RecyclerView contexts. 
