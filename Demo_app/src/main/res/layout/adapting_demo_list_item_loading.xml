@@ -7,12 +7,19 @@
       android:id="@+id/content"
       layout="@layout/adapting_demo_list_item"/>
 
-  <ProgressBar
+  <RelativeLayout
       android:id="@+id/progressBar"
-      style="@style/Widget.AppCompat.ProgressBar"
-      android:layout_width="wrap_content"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_centerInParent="true"/>
-
-
+      android:paddingTop="16dp"
+      android:paddingBottom="16dp"
+      android:background="@android:drawable/edit_text">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="..."
+        android:textColor="#999999"
+        android:textSize="@dimen/list_item_progress_text_size"/>
+  </RelativeLayout>
 </RelativeLayout>
