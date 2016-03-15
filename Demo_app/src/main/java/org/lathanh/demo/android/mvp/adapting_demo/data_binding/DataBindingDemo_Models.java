@@ -4,7 +4,7 @@ import android.databinding.Bindable;
 import android.support.v7.widget.RecyclerView;
 import org.lathanh.demo.android.mvp.BR;
 import org.lathanh.demo.android.mvp.adapting_demo.AdaptingDemo_Models;
-import org.lathanh.demo.android.mvp.databinding.AdaptingDemoDataBindingListItemBinding;
+import org.lathanh.demo.android.mvp.databinding.AdaptingDemoDataBindingImprovedListItemBinding;
 
 /**
  * This class simply contains (as inner classes) the various models that will
@@ -67,9 +67,10 @@ public class DataBindingDemo_Models {
    * ViewDataBinding to do the binding.
    */
   public static class LoadingViewHolder extends RecyclerView.ViewHolder {
-    private AdaptingDemoDataBindingListItemBinding binding;
+    private AdaptingDemoDataBindingImprovedListItemBinding binding;
 
-    public LoadingViewHolder(AdaptingDemoDataBindingListItemBinding binding) {
+    public LoadingViewHolder(AdaptingDemoDataBindingImprovedListItemBinding
+                                 binding) {
       super(binding.getRoot());
       this.binding = binding;
     }

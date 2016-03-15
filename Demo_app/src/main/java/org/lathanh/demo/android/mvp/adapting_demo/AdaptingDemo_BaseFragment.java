@@ -8,7 +8,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -184,33 +183,17 @@ public abstract class AdaptingDemo_BaseFragment<M> extends Fragment {
     return dataModels;
   }
 
-  /**
-   * Create a ViewModel from a DataModel.
-   * It will repeatedly perform string operations until it has reached the time
-   * cost specified by the DataModel (determined during {@link #loadData()}.
-   */
-  protected static ViewModel adaptDataModelToViewModel(DataModel dataModel) {
+  /** Create - "adapt" - a ViewModel from a DataModel. */
+  public static ViewModel adaptDataModelToViewModel(DataModel dataModel) {
     //-- A handful of string operations (e.g., concat, parse) until delay
     //   elapsed
-    String format = "(%d) [%d] {%d}";
-    long elapsedNanos = 0;
-    int i = 0;
-    for (long startNanos = System.nanoTime();
-         elapsedNanos < dataModel.getDelayMs() * 1000000;
-         elapsedNanos = System.nanoTime() - startNanos, i++) {
-      //noinspection unused
-      CharSequence s = "i=" + i + "; delay=" + dataModel.getDelayMs();
-      //noinspection UnusedAssignment
-      s = String.format(format, i, i, i);
-      //noinspection UnusedAssignment
-      s = Html.fromHtml("<b>Bold</b><strong>strong</strong><em>em</em>");
-    }
-
-    String delayDescription =
-        String.format("adapt: %1$.2f ms (target %2$d ms; %3$,d its)",
-                      elapsedNanos / 1000000f, dataModel.getDelayMs(), i);
-    return new ViewModel(dataModel.getName(), delayDescription);
+    String string = dataModel.getName();
+    String delayDescription = AdaptingDemo_Models.adaptForDelay(dataModel);
+    return new ViewModel(string, delayDescription);
   }
+
+
+  //== Inner classes ==========================================================
 
   /**
    * This base Adapter implementation simplifies (centralizes) the creation of

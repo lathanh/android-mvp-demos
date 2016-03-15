@@ -4,6 +4,7 @@ import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 import org.lathanh.demo.android.mvp.R;
@@ -15,6 +16,11 @@ import org.lathanh.demo.android.mvp.R;
  * Normally they would each be their own top-level classes, but putting them
  * all in one place should make them easier to see how they relate to each
  * other.
+ *
+ * This also contains some adapting code that would normally be in
+ * {@link AdaptingDemo_BaseFragment}, but Android Data Binding can't use them if
+ * they're there because it doesn't know how to handle the class with a generic
+ * type definition.
  */
 public class AdaptingDemo_Models {
 
@@ -108,6 +114,11 @@ public class AdaptingDemo_Models {
     public DataModel getDataModel() {
       return dataModel;
     }
+
+    @SuppressWarnings("unused")
+    public boolean isAdapted() {
+      return viewModel != null;
+    }
   }
 
   /** A ViewHolder for the adapting_demo_list_item layout. */
@@ -123,5 +134,31 @@ public class AdaptingDemo_Models {
       this.delay = (TextView) itemView.findViewById(R.id.delay);
       this.bind = (TextView) itemView.findViewById(R.id.bind);
     }
+  }
+
+  /**
+   * Adapt a dataModel's {@link DataModel#getDelayMs()} field into a string
+   * value, and take about that long to do it.
+   * This will repeatedly perform string operations until it has reached the
+   * time cost specified by getDelayMs.
+   */
+  public static String adaptForDelay(DataModel dataModel) {
+    String format = "(%d) [%d] {%d}";
+    long elapsedNanos = 0;
+    int i = 0;
+    for (long startNanos = System.nanoTime();
+         elapsedNanos < dataModel.getDelayMs() * 1000000;
+         elapsedNanos = System.nanoTime() - startNanos, i++) {
+      //noinspection unused
+      CharSequence s = "i=" + i + "; delay=" + dataModel.getDelayMs();
+      //noinspection UnusedAssignment
+      s = String.format(format, i, i, i);
+      //noinspection UnusedAssignment
+      s = Html.fromHtml("<b>Bold</b><strong>strong</strong><em>em</em>");
+    }
+
+    return
+        String.format("adapt: %1$.2f ms (target %2$d ms; %3$,d its)",
+                      elapsedNanos / 1000000f, dataModel.getDelayMs(), i);
   }
 }

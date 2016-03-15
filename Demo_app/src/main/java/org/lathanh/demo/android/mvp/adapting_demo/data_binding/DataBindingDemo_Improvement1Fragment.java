@@ -13,7 +13,7 @@ import org.lathanh.demo.android.mvp.adapting_demo.AdaptingDemo_Models.ViewModel;
 import org.lathanh.demo.android.mvp.adapting_demo.AdaptingDemo_BaseFragment;
 import org.lathanh.demo.android.mvp.adapting_demo.data_binding.DataBindingDemo_Models.LoadingViewHolder;
 import org.lathanh.demo.android.mvp.adapting_demo.data_binding.DataBindingDemo_Models.LoadingViewModel;
-import org.lathanh.demo.android.mvp.databinding.AdaptingDemoDataBindingListItemBinding;
+import org.lathanh.demo.android.mvp.databinding.AdaptingDemoDataBindingImprovedListItemBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -115,9 +115,9 @@ public class DataBindingDemo_Improvement1Fragment
 
     @Override
     public LoadingViewHolder onCreateViewHolder(ViewGroup parent, int i) {
-      AdaptingDemoDataBindingListItemBinding binding =
+      AdaptingDemoDataBindingImprovedListItemBinding binding =
             DataBindingUtil.inflate(inflater,
-              R.layout.adapting_demo_data_binding_list_item,
+              R.layout.adapting_demo_data_binding_improved_list_item,
               parent, false);
       return new LoadingViewHolder(binding);
     }

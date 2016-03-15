@@ -9,7 +9,7 @@
       android:id="@+id/label"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:textSize="16sp"
+      android:textSize="@dimen/list_item_label_text_size"
       android:textStyle="bold"/>
 
   <TextView
@@ -19,7 +19,8 @@
       android:layout_toEndOf="@id/label"
       android:layout_marginStart="12dp"
       android:layout_alignBaseline="@id/label"
-      android:textColor="@android:color/darker_gray"/>
+      android:textColor="@android:color/darker_gray"
+      android:textSize="@dimen/list_item_delay_text_size"/>
 
   <TextView
       android:id="@+id/bind_label"
@@ -29,7 +30,8 @@
       android:layout_below="@id/delay"
       android:layout_marginTop="2dp"
       android:layout_alignStart="@id/delay"
-      android:textColor="@android:color/holo_red_dark"/>
+      android:textColor="@android:color/holo_red_dark"
+      android:textSize="@dimen/list_item_bind_text_size"/>
   <TextView
       android:id="@+id/bind"
       android:layout_width="wrap_content"
@@ -37,6 +39,7 @@
       android:layout_alignBaseline="@id/bind_label"
       android:layout_marginTop="2dp"
       android:layout_toEndOf="@id/bind_label"
-      android:textColor="@android:color/holo_red_dark"/>
+      android:textColor="@android:color/holo_red_dark"
+      android:textSize="@dimen/list_item_bind_text_size"/>
 
 </RelativeLayout>

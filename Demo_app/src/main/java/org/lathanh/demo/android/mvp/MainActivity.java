@@ -10,8 +10,8 @@ import android.view.MenuItem;
 import org.lathanh.demo.android.mvp.adapting_demo.AdaptingDemo_Improvement1Fragment;
 import org.lathanh.demo.android.mvp.adapting_demo.AdaptingDemo_Improvement2Fragment;
 import org.lathanh.demo.android.mvp.adapting_demo.AdaptingDemo_StandardFragment;
-import org.lathanh.demo.android.mvp.adapting_demo.data_binding.DataBindingDemo_Improvement1Fragment;
 import org.lathanh.demo.android.mvp.adapting_demo.data_binding.DataBindingDemo_StandardFragment;
+import org.lathanh.demo.android.mvp.adapting_demo.data_binding.DataBindingDemo_Improvement1Fragment;
 
 public class MainActivity extends AppCompatActivity {
 

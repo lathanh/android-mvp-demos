@@ -10,9 +10,7 @@ import android.view.ViewGroup;
 import org.lathanh.demo.android.mvp.R;
 import org.lathanh.demo.android.mvp.adapting_demo.AdaptingDemo_BaseFragment;
 import org.lathanh.demo.android.mvp.adapting_demo.AdaptingDemo_Models.DataModel;
-import org.lathanh.demo.android.mvp.adapting_demo.data_binding.DataBindingDemo_Models.LoadingViewHolder;
-import org.lathanh.demo.android.mvp.adapting_demo.data_binding.DataBindingDemo_Models.LoadingViewModel;
-import org.lathanh.demo.android.mvp.databinding.AdaptingDemoDataBindingListItemBinding;
+import org.lathanh.demo.android.mvp.databinding.AdaptingDemoDataBindingStandardListItemBinding;
 
 import java.util.List;
 
@@ -71,11 +69,27 @@ public class DataBindingDemo_StandardFragment
   //== Inner classes ==========================================================
 
   /**
+   * The ViewHolder when using Data Binding is simple; it just uses the layout's
+   * ViewDataBinding to do the binding.
+   */
+  public static class ViewHolder extends RecyclerView.ViewHolder {
+    private AdaptingDemoDataBindingStandardListItemBinding binding;
+
+    public ViewHolder(AdaptingDemoDataBindingStandardListItemBinding binding) {
+      super(binding.getRoot());
+      this.binding = binding;
+    }
+
+    public void setDataModel(DataModel dataModel) {
+      binding.setDataModel(dataModel);
+    }
+  } // class LoadingViewHolder
+
+  /**
    * Adapts the DataModel at the time that it's needed; that is, when it comes
    * into view.
    */
-  private class Adapter
-      extends RecyclerView.Adapter<LoadingViewHolder> {
+  private class Adapter extends RecyclerView.Adapter<ViewHolder> {
 
     private final List<DataModel> dataModels;
     private LayoutInflater inflater;
@@ -86,29 +100,18 @@ public class DataBindingDemo_StandardFragment
     }
 
     @Override
-    public LoadingViewHolder onCreateViewHolder(ViewGroup parent, int i) {
-      AdaptingDemoDataBindingListItemBinding binding =
-            DataBindingUtil.inflate(inflater,
-              R.layout.adapting_demo_data_binding_list_item,
-              parent, false);
-      return new LoadingViewHolder(binding);
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int i) {
+      AdaptingDemoDataBindingStandardListItemBinding binding =
+            DataBindingUtil.inflate(
+                inflater, R.layout.adapting_demo_data_binding_standard_list_item,
+                parent, false);
+      return new ViewHolder(binding);
     }
 
     @Override
-    public void onBindViewHolder(LoadingViewHolder viewHolder, int position) {
-      long startTime = System.nanoTime();
+    public void onBindViewHolder(ViewHolder viewHolder, int position) {
       final DataModel dataModel = dataModels.get(position);
-      final LoadingViewModel loadingViewModel =
-          new LoadingViewModel(dataModel);
-
-      // adapt now (wait for it) and then immediately set to the
-      // loadingViewModel. The loading state will never be needed.
-      loadingViewModel.setViewModel(adaptDataModelToViewModel(dataModel));
-      loadingViewModel.setOnBindTimeNanos(startTime);
-
-      // give the viewModel to the viewHolder, which knows how to do the actual
-      // binding (using Data Binding)
-      viewHolder.setLoadingViewModel(loadingViewModel);
+      viewHolder.setDataModel(dataModel);
     } // onBindViewHolder()
 
     @Override
