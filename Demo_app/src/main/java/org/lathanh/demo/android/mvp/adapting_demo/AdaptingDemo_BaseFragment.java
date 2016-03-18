@@ -110,7 +110,7 @@ public abstract class AdaptingDemo_BaseFragment<M> extends Fragment {
     Runnable onLoadedCallback = new Runnable() {
       @Override
       public void run() {
-        getActivity().findViewById(R.id.progressBar).setVisibility(View.GONE);
+        getActivity().findViewById(R.id.loadingView).setVisibility(View.GONE);
         getActivity().findViewById(R.id.recycler_view).setVisibility(View.VISIBLE);
 
         long debugElapsedMs = System.currentTimeMillis() - debugLoadStartTime;

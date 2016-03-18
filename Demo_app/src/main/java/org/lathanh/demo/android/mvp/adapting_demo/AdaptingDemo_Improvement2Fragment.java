@@ -78,6 +78,7 @@ public class AdaptingDemo_Improvement2Fragment
         // Set up adapter and call callback
         Adapter adapter = new Adapter(getActivity(), loadingViewModels);
         recyclerView.setAdapter(adapter);
+        recyclerView.setItemAnimator(null);
         onLoadedCallback.run();
       }
     };
@@ -126,7 +127,7 @@ public class AdaptingDemo_Improvement2Fragment
       boundViewHolder = viewHolder;
       viewHolder.backRef = this;
       if (viewModel == null) {
-        viewHolder.contentContainer.setVisibility(View.INVISIBLE);
+        viewHolder.contentContainer.setVisibility(View.GONE);
         viewHolder.progressView.setVisibility(View.VISIBLE);
 
         // start task to make this view available
@@ -187,7 +188,7 @@ public class AdaptingDemo_Improvement2Fragment
     public LoadingViewHolder(View itemView, OnChangeListener onChangeListener) {
       super(itemView);
       this.contentContainer = itemView.findViewById(R.id.content);
-      this.progressView = itemView.findViewById(R.id.progressBar);
+      this.progressView = itemView.findViewById(R.id.loadingView);
       this.onChangeListener = onChangeListener;
     }
   } // class LoadingViewHolder

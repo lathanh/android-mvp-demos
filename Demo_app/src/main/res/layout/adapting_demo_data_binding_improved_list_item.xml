@@ -74,21 +74,17 @@
     </RelativeLayout>
 
     <!-- == Loading placeholder ============================================= -->
-    <RelativeLayout
-        android:id="@+id/progressBar"
+    <TextView
+        android:id="@+id/loadingView"
+        android:visibility="@{loadingViewModel.viewModel != null ? View.GONE : View.VISIBLE}"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
         android:background="@android:drawable/edit_text"
-        android:visibility="@{loadingViewModel.viewModel != null ? View.GONE : View.VISIBLE}">
-      <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_centerInParent="true"
-          android:text="..."
-          android:textColor="#999999"
-          android:textSize="@dimen/list_item_progress_text_size"/>
-    </RelativeLayout>
+        android:text="..."
+        android:gravity="center"
+        android:textColor="#999999"
+        android:textSize="@dimen/list_item_progress_text_size"/>
   </RelativeLayout>
 </layout>
