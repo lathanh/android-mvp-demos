@@ -60,9 +60,7 @@ public class AdaptingDemo_Models {
    * have no effect on the other demos.
    */
   public static class ViewModel extends BaseObservable {
-    @Bindable
     private String string;
-    @Bindable
     private String delay;
 
     public ViewModel(String string, String delay) {
@@ -70,10 +68,12 @@ public class AdaptingDemo_Models {
       this.delay = delay;
     }
 
+    @Bindable
     public String getString() {
       return string;
     }
 
+    @Bindable
     public String getDelay() {
       return delay;
     }

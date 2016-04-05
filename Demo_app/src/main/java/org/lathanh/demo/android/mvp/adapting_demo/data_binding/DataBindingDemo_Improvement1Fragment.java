@@ -1,13 +1,11 @@
 package org.lathanh.demo.android.mvp.adapting_demo.data_binding;
 
 import android.content.Context;
-import android.databinding.DataBindingUtil;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import org.lathanh.demo.android.mvp.R;
 import org.lathanh.demo.android.mvp.adapting_demo.AdaptingDemo_Models.DataModel;
 import org.lathanh.demo.android.mvp.adapting_demo.AdaptingDemo_Models.ViewModel;
 import org.lathanh.demo.android.mvp.adapting_demo.AdaptingDemo_BaseFragment;
@@ -116,9 +114,8 @@ public class DataBindingDemo_Improvement1Fragment
     @Override
     public LoadingViewHolder onCreateViewHolder(ViewGroup parent, int i) {
       AdaptingDemoDataBindingImprovedListItemBinding binding =
-            DataBindingUtil.inflate(inflater,
-              R.layout.adapting_demo_data_binding_improved_list_item,
-              parent, false);
+          AdaptingDemoDataBindingImprovedListItemBinding.inflate(inflater,
+                                                                 parent, false);
       return new LoadingViewHolder(binding);
     }
 
