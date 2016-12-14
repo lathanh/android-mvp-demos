@@ -258,12 +258,17 @@ The [Data Binding demos](data-binding.md) essentially repeats the Adapting demo,
 but using Android Data Binding instead of manually binding.
 
 ### 2. A Framework
-We'll apply this strategy to a framework. That is we'll create base (abstract) 
-classes that steer developers into the practices demonstrated here; 
-and further, provide implementations that take care of common use cases for 
-them, like using a ExecutorService to do the adapting in the background.
+The
+[lathanh/android-mvp-framework on github](https://github.com/lathanh/android-mvp-framework)
+is a framework for applying this strategy (separating binding from adapting)
+more easily.
+That is, it provides base (abstract) classes that steer developers into the 
+practices demonstrated here; 
+and further, it provides implementations that take care of common use cases for 
+them, like using a ExecutorService to do the adapting in the background on
+demand.
 
-### And Beyond
+### Planned for later
   1. Introduce updates of the data, which should update the view.
   2. Learn how this makes our adapting, binding, and state 
      saving/restoring easy for non-RecyclerView contexts. 

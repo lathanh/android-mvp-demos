@@ -1,7 +1,3 @@
-repositories {
-  mavenLocal()
-}
-
 apply plugin: 'com.android.application'
 
 android {
