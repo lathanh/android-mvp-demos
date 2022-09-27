@@ -1,7 +1,7 @@
 package org.lathanh.demo.android.mvp;
 
-import android.support.test.uiautomator.SearchCondition;
-import android.support.test.uiautomator.UiDevice;
+import androidx.test.uiautomator.SearchCondition;
+import androidx.test.uiautomator.UiDevice;
 import android.util.Log;
 
 /**

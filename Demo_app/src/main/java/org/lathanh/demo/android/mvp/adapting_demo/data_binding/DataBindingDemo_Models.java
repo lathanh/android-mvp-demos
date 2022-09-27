@@ -1,7 +1,7 @@
 package org.lathanh.demo.android.mvp.adapting_demo.data_binding;
 
-import android.databinding.Bindable;
-import android.support.v7.widget.RecyclerView;
+import androidx.databinding.Bindable;
+import androidx.recyclerview.widget.RecyclerView;
 import org.lathanh.demo.android.mvp.BR;
 import org.lathanh.demo.android.mvp.adapting_demo.AdaptingDemo_Models;
 import org.lathanh.demo.android.mvp.databinding.AdaptingDemoDataBindingImprovedListItemBinding;
@@ -21,7 +21,7 @@ public class DataBindingDemo_Models {
    * {@link org.lathanh.demo.android.mvp.adapting_demo regular adapting demos},
    * we can easily measure the amount of time it takes to "bind" (by simply
    * timing how much time is spent in
-   * {@link android.support.v7.widget.RecyclerView.Adapter#onBindViewHolder}).
+   * {@link RecyclerView.Adapter#onBindViewHolder}).
    * However, with Data Binding, that method no longer does the binding (it
    * simply hands the ViewModel to the ViewHolder).
    * Instead, we can start a timer and end it when the binder asks the ViewModel

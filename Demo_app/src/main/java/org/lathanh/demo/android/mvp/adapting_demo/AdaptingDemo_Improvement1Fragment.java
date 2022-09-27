@@ -2,7 +2,7 @@ package org.lathanh.demo.android.mvp.adapting_demo;
 
 
 import android.os.AsyncTask;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.Log;
 import org.lathanh.demo.android.mvp.adapting_demo.AdaptingDemo_Models.DataModel;
 import org.lathanh.demo.android.mvp.adapting_demo.AdaptingDemo_Models.ViewModel;
@@ -18,7 +18,7 @@ import java.util.concurrent.*;
  * it's received.
  *
  * The benefit of this is that the
- * {@link android.support.v7.widget.RecyclerView.Adapter Adapter} then only has
+ * {@link androidx.recyclerview.widget.RecyclerView.Adapter Adapter} then only has
  * to Bind (instead of Adapt and Bind), which means that it happens much more
  * quickly and can more consistently achieve high-FPS (frames-per-second),
  * buttery-smooth scrolling.

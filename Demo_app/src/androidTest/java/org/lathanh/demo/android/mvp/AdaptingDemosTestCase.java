@@ -1,8 +1,8 @@
 package org.lathanh.demo.android.mvp;
 
 import android.os.Trace;
-import android.support.test.uiautomator.*;
-import android.support.v7.widget.RecyclerView;
+import androidx.test.uiautomator.*;
+import androidx.recyclerview.widget.RecyclerView;
 import android.test.InstrumentationTestCase;
 import android.util.Log;
 

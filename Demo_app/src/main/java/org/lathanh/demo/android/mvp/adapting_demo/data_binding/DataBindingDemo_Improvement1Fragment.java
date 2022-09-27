@@ -2,8 +2,8 @@ package org.lathanh.demo.android.mvp.adapting_demo.data_binding;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import org.lathanh.demo.android.mvp.adapting_demo.AdaptingDemo_Models.DataModel;
@@ -30,8 +30,8 @@ import java.util.concurrent.TimeUnit;
  * The View will show a loading indicator until the adapting is done.
  * When the adapting is done, the LoadingViewModel is updated and notifies
  * observers (its
- * {@link android.databinding.BaseObservable} parent's call
- * {@link android.databinding.BaseObservable#notifyPropertyChanged(int) notifyPropertyChanged()},
+ * {@link androidx.databinding.BaseObservable} parent's call
+ * {@link androidx.databinding.BaseObservable#notifyPropertyChanged(int) notifyPropertyChanged()},
  * which cause the RecyclerView to update it.
  *
  * @author Robert LaThanh 2015-11-09

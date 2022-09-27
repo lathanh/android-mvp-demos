@@ -1,9 +1,9 @@
 package org.lathanh.demo.android.mvp.adapting_demo;
 
-import android.databinding.BaseObservable;
-import android.databinding.Bindable;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.Html;
 import android.view.View;
 import android.widget.TextView;

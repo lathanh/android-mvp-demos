@@ -2,8 +2,8 @@ package org.lathanh.demo.android.mvp.adapting_demo;
 
 
 import android.os.AsyncTask;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import org.lathanh.demo.android.mvp.adapting_demo.AdaptingDemo_Models.DataModel;
 import org.lathanh.demo.android.mvp.adapting_demo.AdaptingDemo_Models.ViewModel;
 

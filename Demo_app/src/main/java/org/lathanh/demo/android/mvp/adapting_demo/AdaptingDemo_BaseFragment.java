@@ -4,10 +4,10 @@ package org.lathanh.demo.android.mvp.adapting_demo;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,11 +65,15 @@ public abstract class AdaptingDemo_BaseFragment<M> extends Fragment {
   protected static final int LOAD_DELAY_MS = 500;
 
   /** Inclusive. See {@link #ITEM_ADAPTING_COST_RANDOM_SEED} */
-  protected static final int ITEM_ADAPTING_COST_MIN_MS = 6;
+  protected static final int ITEM_ADAPTING_COST_MIN_MS = 10;
 
   /** Inclusive. See {@link #ITEM_ADAPTING_COST_RANDOM_SEED} */
-  protected static final int ITEM_ADAPTING_COST_MAX_MS = 15;
+  protected static final int ITEM_ADAPTING_COST_MAX_MS = 30;
 
+  /**
+   * Precalculated difference between {@link #ITEM_ADAPTING_COST_MIN_MS} and
+   * {@link #ITEM_ADAPTING_COST_MAX_MS} to more efficiently fetch a random jitter between the two.
+   */
   protected static final int ITEM_ADAPTING_COST_DIFF_MS =
       ITEM_ADAPTING_COST_MAX_MS - ITEM_ADAPTING_COST_MIN_MS + 1;
 
